@@ -5,7 +5,7 @@ package ca.mcgill.cs.swdesign.m0.demo;
  */
 public class AlternatingLabelProvider
 {
-	private final String label1;
+	private final String aLabel1;
 	private final String aLabel2;
 	
 	/**
@@ -16,7 +16,7 @@ public class AlternatingLabelProvider
 	 */
 	public AlternatingLabelProvider(String pLabel1, String pLabel2) {
 		assert pLabel1 != null && pLabel2 != null;
-		label1 = pLabel1;
+		aLabel1 = pLabel1;
 		aLabel2 = pLabel2;
 	}
 	
@@ -30,7 +30,7 @@ public class AlternatingLabelProvider
 	{
 		if( pLabel )
 		{
-			return label1;
+			return aLabel1;
 		}
 		else
 		{
@@ -43,6 +43,6 @@ public class AlternatingLabelProvider
 	 */
 	public String getBoth()
 	{
-		return label1 + " " + aLabel2;
+		return aLabel1 + " " + aLabel2;
 	}
 }

@@ -25,7 +25,7 @@ import javafx.stage.Stage;
 public class Welcome extends Application implements EventHandler<ActionEvent>, ChangeListener<Toggle>
 {
 	private static final int MARGIN = 10;
-	private static final int WIDTH = 180;
+	private static final int WIDTH = 250;
 	private static final int HEIGHT = 200;
 	private static final String PART_1 = "Welcome";
 	private static final String PART_2 = "to your Software Design course";
