@@ -7,7 +7,7 @@ public class Course {
 
     private String aID;
     private int aCap;
-    private List<Student> enrollment;
+    private List<Undergrad> enrollment;
 
     public Course(String pID, int pCap) {
         this.aID = pID;
@@ -19,7 +19,7 @@ public class Course {
         return aCap;
     }
 
-    public boolean setEnrollment(List<Student> pEnrollment) {
+    public boolean setEnrollment(List<Undergrad> pEnrollment) {
         if(pEnrollment.size()<=aCap) {
             enrollment = pEnrollment;
             return true;
@@ -27,11 +27,11 @@ public class Course {
         return false;
     }
 
-    public List<Student> getEnrolledStudent() {
+    public List<Undergrad> getEnrolledStudent() {
         return enrollment;
     }
 
-    public boolean enroll(Student pStudent) {
+    public boolean enroll(Undergrad pStudent) {
         if(enrollment.size()<aCap) {
             enrollment.add(pStudent);
             return true;
@@ -39,7 +39,7 @@ public class Course {
         return false;
     }
 
-    public boolean enroll(List<Student> pStudents) {
+    public boolean enroll(List<Undergrad> pStudents) {
         if(enrollment.size() + pStudents.size()<=aCap) {
             enrollment.addAll(pStudents);
             return true;
@@ -49,12 +49,12 @@ public class Course {
 
     public void printEnrolledStudent() {
         System.out.println(aID + ": ");
-        for(Student s: enrollment) {
+        for(Undergrad s: enrollment) {
             System.out.println(s);
         }
     }
 
-    public boolean withdraw(Student pStudent) {
+    public boolean withdraw(Undergrad pStudent) {
         return enrollment.remove(pStudent);
     }
 

@@ -5,9 +5,9 @@ import java.util.List;
 
 public class CourseSystem {
     public static void main(String[] args) {
-        Student s1 = new Undergrad("00001", "James", "Harris");
-        Student s2 = new Undergrad("00002", "Benny", "Will");
-        List<Student> students = new ArrayList<>();
+        Undergrad s1 = new Undergrad("00001", "James", "Harris");
+        Undergrad s2 = new Undergrad("00002", "Benny", "Will");
+        List<Undergrad> students = new ArrayList<>();
         students.add(s1);
         students.add(s2);
 
