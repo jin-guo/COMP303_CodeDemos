@@ -17,14 +17,13 @@ public final class Client
 	public static void main(String[] pArgs)
 	{
 
-		for( Rank rank : Rank.values() )
-		{
-			for( Suit suit : Suit.values() )
-			{
-				System.out.println(new Card6(rank, suit));
-			}
-		}
+		Card6 c6 = new Card6(Rank.QUEEN, Suit.SPADES);
+		Deck d = new Deck();
+		d.addCard(c6);
+		d.print();
 
+		c6.setRank(Rank.KING);
+		d.print();
 	}
 
 	
