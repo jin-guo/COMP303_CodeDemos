@@ -17,12 +17,13 @@ public final class Client
 	public static void main(String[] pArgs)
 	{
 
-		Card6 c6 = new Card6(Rank.QUEEN, Suit.SPADES);
+		Card6 card = new Card6(Rank.QUEEN, Suit.SPADES);
 		Deck d = new Deck();
-		d.addCard(c6);
+		d.addCard(card);
 		d.print();
 
-		c6.setRank(Rank.KING);
+		//Change the card using the reference outside of deck.
+		card.setRank(Rank.KING);
 		d.print();
 	}
 
