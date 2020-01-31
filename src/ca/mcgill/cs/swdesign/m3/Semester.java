@@ -5,12 +5,36 @@ import java.util.Objects;
 public class Semester {
     public enum Term {Fall, Winter, Summer}
 
-    final private Term aTerm;
-    final int aYear;
+    private static class SemesterCaches {
+        static final int minYear = 1980;
+        static final int maxYear = 2070;
 
-    public Semester(Term pTerm, int pYear) {
+        static final Semester[][] caches = new Semester[maxYear-minYear+1][Term.values().length];
+
+        // Create the flyweight objects
+        static {
+            for (int i = minYear; i < maxYear+1; i++) {
+                for (Term term : Term.values()) {
+                    caches[i-minYear][term.ordinal()] = new Semester(term, i);
+                }
+            }
+        }
+    }
+
+    final private Term aTerm;
+    final private int aYear;
+
+    private Semester(Term pTerm, int pYear) {
         aTerm = pTerm;
         aYear = pYear;
+    }
+
+    public static Semester getSemester(Term pTerm, int pYear) {
+        if(pYear>=SemesterCaches.minYear && pYear<=SemesterCaches.maxYear) {
+            return SemesterCaches.caches[pYear-SemesterCaches.minYear][pTerm.ordinal()];
+        } else {
+            return new Semester(pTerm, pYear);
+        }
     }
 
     public Term getTerm() {

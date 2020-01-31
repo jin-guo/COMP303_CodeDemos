@@ -3,17 +3,15 @@ package ca.mcgill.cs.swdesign.m3;
 
 import ca.mcgill.cs.swdesign.m2.demo.Student;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class Course {
-
     private String aID;
     private boolean aIsActive;
     private int aCap;
     private List<Student> aEnrollment;
     private Optional<CourseSchedule> aSchedule;
+    private Comparator<Student> aStudentComparator;
 
     public Course(String pID, int pCap) {
         aID = pID;
@@ -21,6 +19,7 @@ public class Course {
         aEnrollment = new ArrayList<>();
         aIsActive = false;
         aSchedule = Optional.empty();
+        aStudentComparator = new NullComparator();
     }
 
     public void setSchedule(CourseSchedule pSchedule) {
@@ -64,6 +63,18 @@ public class Course {
 
     public boolean withdraw(Student pStudent) {
         return aEnrollment.remove(pStudent);
+    }
+
+    public Comparator<Student> getStudentComparator() {
+        return aStudentComparator;
+    }
+
+    public void setStudentComparator(Comparator<Student> aStudentComparator) {
+        this.aStudentComparator = aStudentComparator;
+    }
+
+    public void sortStudent() {
+        Collections.sort(aEnrollment, aStudentComparator);
     }
 
 }

@@ -1,20 +1,35 @@
 package ca.mcgill.cs.swdesign.m3;
 
-import ca.mcgill.cs.swdesign.m2.Card;
-import ca.mcgill.cs.swdesign.m2.demo.Student;
-import ca.mcgill.cs.swdesign.m2.demo.Undergrad;
-
 import java.time.DayOfWeek;
 import java.time.LocalTime;
+import java.util.Comparator;
 
 public class CourseSystem {
     public static void main(String[] args) {
+        optionalSchedule();
+        checkSemesterUniqueness();
+
+
+    }
+
+    private static void optionalSchedule() {
         Course comp303 = new Course("COMP 303", 200);
         printSchedule(comp303);
 
         comp303.setSchedule(createSchedule());
         printSchedule(comp303);
+    }
 
+    private static void checkSemesterUniqueness() {
+        Semester s1 = Semester.getSemester(Semester.Term.Fall, 2020);
+        Semester s2 = Semester.getSemester(Semester.Term.Fall, 2020);
+        Semester s3 = Semester.getSemester(Semester.Term.Winter, 2100);
+        Semester s4 = Semester.getSemester(Semester.Term.Winter, 2100);
+
+
+        System.out.println(s1 == s2); // Should be true;
+        System.out.println(s1 == s3); // Should be false;
+        System.out.println(s3 == s4); // Should be false;
     }
 
 
@@ -25,7 +40,7 @@ public class CourseSystem {
         LocalTime startTime = LocalTime.of(14,35,00);
         LocalTime endTime  = LocalTime.of(15,55,00);
 
-        return  new CourseSchedule(new Semester(Semester.Term.Fall, 2020), pDayOfWeek,
+        return  new CourseSchedule(Semester.getSemester(Semester.Term.Fall, 2020), pDayOfWeek,
                 startTime, endTime);
     }
 
@@ -36,7 +51,6 @@ public class CourseSystem {
         } else {
             System.out.println("Schedule unavailable.");
         }
-
     }
 
 }
