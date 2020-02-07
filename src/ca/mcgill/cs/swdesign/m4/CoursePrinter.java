@@ -17,17 +17,23 @@ public class CoursePrinter {
      */
     public void writeToFile1(Course pCourse, String pFilePath) {
         File file = new File(pFilePath);
+        FileWriter fileWriter = null;
         try {
-            FileWriter fileWriter = new FileWriter(file);
+            fileWriter = new FileWriter(file);
             for (Student s : pCourse) {
                 fileWriter.write(s.toString());
                 fileWriter.write("\n");
             }
-            fileWriter.close();
-
         } catch (IOException e) {
             System.out.println("Something is wrong when construct File object or writing to file!");
             e.printStackTrace();
+        } finally {
+            try {
+                fileWriter.close();
+            } catch (IOException e) {
+                System.out.println("Something is wrong when trying to close to file");
+                e.printStackTrace();
+            }
         }
     }
 
