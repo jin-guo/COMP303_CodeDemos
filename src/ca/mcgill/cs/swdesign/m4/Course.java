@@ -55,14 +55,6 @@ public class Course implements Iterable<Student> {
         return aEnrollment.size() == aCap;
     }
 
-    public boolean enroll(List<Student> pStudents) {
-        if(aEnrollment.size() + pStudents.size()<=aCap) {
-            aEnrollment.addAll(pStudents);
-            return true;
-        }
-        return false;
-    }
-
     public void printEnrolledStudent() {
         System.out.println(aEnrollment.size() + " students enrolled: ");
         System.out.println(aID + ": ");
