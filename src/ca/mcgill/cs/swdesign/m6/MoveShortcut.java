@@ -4,7 +4,6 @@ public class MoveShortcut implements KeyboardShortcut {
     private Shape aShape;
     private int x;
     private int y;
-    private int aPreX;
 
     MoveShortcut(Shape pShape, int x, int y) {
         this.aShape = pShape;
