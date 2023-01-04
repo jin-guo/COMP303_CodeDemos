@@ -1,4 +1,4 @@
-package ca.mcgill.cs.swdesign.m0.demo;
+package ca.mcgill.cs.swdesign.m0;
 
 /**
  * Provides one of two pre-selected labels.
