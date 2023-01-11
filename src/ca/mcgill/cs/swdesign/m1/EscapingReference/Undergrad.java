@@ -1,12 +1,21 @@
 package ca.mcgill.cs.swdesign.m1.EscapingReference;
 
 public class Undergrad {
-    private int year;
-    final private String aID;
+    public static class UndergradID{
+        private final String aID;
+        public UndergradID(String pID){
+            assert pID != null;
+            aID = pID;
+        }
+        public String getaID() {
+            return aID;
+        }
+    }
+    private UndergradID aID;
     private String aFirstName;
     private String aLastName;
 
-    public Undergrad(String pID, String pFirstName, String pLastName) {
+    public Undergrad(UndergradID pID, String pFirstName, String pLastName) {
         assert pID != null && pFirstName != null && pLastName != null;
         this.aID = pID;
         this.aFirstName = pFirstName;
@@ -24,14 +33,6 @@ public class Undergrad {
         assert pUG != null;
         Undergrad copy = new Undergrad(pUG.aID, pUG.aFirstName, pUG.aFirstName);
         return copy;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
     }
 
     public String getFirstName() {
@@ -52,11 +53,15 @@ public class Undergrad {
         this.aLastName = pLastName;
     }
 
-    public String getID() {
+    public UndergradID getID() {
         return aID;
     }
 
+    public void setID (UndergradID pID) {
+        aID = pID;
+    }
+
     public String toString() {
-        return aID + ", " + aFirstName + ", " + aLastName;
+        return aID.getaID() + ", " + aFirstName + ", " + aLastName;
     }
 }
