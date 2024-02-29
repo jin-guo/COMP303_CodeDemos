@@ -56,7 +56,6 @@ public class Circle implements Shape{
     }
 
     public static void main(String[] args) {
-        Circle c0 = new Circle(5, 5, 1);
         Shape c1 = new Circle(10, 10, 2);
         Shape c2 = Circle.newInstance(c1);
         System.out.println(c1 == c2);
