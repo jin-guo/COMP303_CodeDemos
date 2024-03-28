@@ -7,7 +7,7 @@ import java.util.List;
 
 public abstract class OrgNode implements IVisitable
 {
-	private String aName;
+	private final String aName;
 	
 	public String getName() { return aName; }
 	public OrgNode( String pName ) { aName = pName; }
@@ -40,7 +40,7 @@ class NullOrgNode extends OrgNode
 
 class University extends OrgNode
 {	
-	private final List<Faculty> aFaculties = new ArrayList<Faculty>();
+	private final List<Faculty> aFaculties = new ArrayList<>();
 	
 	public University(String pName) { super(pName); }
 	public void addFaculty(Faculty pFaculty) { aFaculties.add(pFaculty); }
@@ -59,8 +59,8 @@ class University extends OrgNode
 
 class Faculty extends OrgNode
 {
-	private final List<Department> aDepts = new ArrayList<Department>();
-	private final List<Committee> aCommittees = new ArrayList<Committee>();
+	private final List<Department> aDepts = new ArrayList<>();
+	private final List<Committee> aCommittees = new ArrayList<>();
 	
 	public Faculty(String pName) { super(pName); }
 	public void addDepartment(Department pDepartment) { aDepts.add(pDepartment); }
@@ -86,7 +86,7 @@ class Faculty extends OrgNode
 
 class Department extends OrgNode
 {
-	private final List<Committee> aCommittees = new ArrayList<Committee>();
+	private final List<Committee> aCommittees = new ArrayList<>();
 	
 	public Department(String pName) { super(pName); }
 	public void addCommittee(Committee pCommittee) { aCommittees.add(pCommittee); }
@@ -105,7 +105,7 @@ class Department extends OrgNode
 
 class Committee extends OrgNode
 {
-	private final List<Committee> aCommittees = new ArrayList<Committee>();
+	private final List<Committee> aCommittees = new ArrayList<>();
 	
 	public Committee(String pName) { super(pName); }
 	public void addCommittee(Committee pCommittee) { aCommittees.add(pCommittee); }
