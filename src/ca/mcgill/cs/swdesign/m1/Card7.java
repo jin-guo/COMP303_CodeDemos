@@ -26,7 +26,7 @@ public class Card7
 
 		private Card7.Suit.Color aColor;
 
-		private enum Color {BLACK, RED}
+		public enum Color {BLACK, RED}
 
 		Suit(Card7.Suit.Color pColor){
 			this.aColor = pColor;

@@ -8,19 +8,9 @@ public class CourseSystem {
         Undergrad s1 = new Undergrad(new Undergrad.UndergradID("00001"), "James", "Harris");
         Undergrad s2 = new Undergrad(new Undergrad.UndergradID("00002"), "Benny", "Will");
 
-        Undergrad.UndergradID id = s1.getID();
-        id = new Undergrad.UndergradID("00003");
-        String copyofName = s1.getFirstName();
-        copyofName = "Lisa";
-
-        s1.setID(new Undergrad.UndergradID("00003"));
-        System.out.println(s1);
-
-
         List<Undergrad> students = new ArrayList<>();
         students.add(s1);
         students.add(s2);
-
 
         Course comp302 = new Course("COMP 302", 200);
         Course comp303 = new Course("COMP 303", 200);
